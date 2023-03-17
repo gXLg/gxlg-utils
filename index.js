@@ -17,7 +17,7 @@ function jsonCompare(arg1, arg2){
         return false;
       }
       return (Object.keys(arg1).every(
-        key => jsonCompare(arg1[key], arg2[key]);
+        key => jsonCompare(arg1[key], arg2[key])
       ));
     }
     return (arg1 === arg2);
@@ -35,12 +35,11 @@ function jsonCopy(obj){
       return n;
     }
     const n = { };
-    for(const key in obj){
+    for(const key in obj)
       n[key] = jsonCopy(n[key]);
-    }
     return n;
   }
   return obj;
 }
 
-modules.exports = { jsonCompare, jsonCopy };
+module.exports = { jsonCompare, jsonCopy };

@@ -1,0 +1,24 @@
+{
+  "name": "gxlg-utils",
+  "version": "1.0.0",
+  "description": "A collection of useful node.js scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gXLg/gxlg-utils.git"
+  },
+  "keywords": [
+    "json",
+    "utils"
+  ],
+  "author": "gxlg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gXLg/gxlg-utils/issues"
+  },
+  "homepage": "https://github.com/gXLg/gxlg-utils#readme",
+  "devDependencies": {}
+}

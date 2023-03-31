@@ -36,7 +36,7 @@ function jsonCopy(obj){
     }
     const n = { };
     for(const key in obj)
-      n[key] = jsonCopy(n[key]);
+      n[key] = jsonCopy(obj[key]);
     return n;
   }
   return obj;

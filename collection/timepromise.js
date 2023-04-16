@@ -9,15 +9,26 @@ class TimePromise extends Promise {
       "timedout": false
     };
 
-    let res, rej;
+    let res, rej, t;
+
+    if(timeout !== undefined){
+      t = setTimeout(() => {
+        if(!this.status.pending) return;
+        this.status.timedout = true;
+        this.status.pending = false;
+        this.resolve(null);
+      }, timeout);
+    }
 
     super((resolve, reject) => {
       res = (...a) => {
+        clearTimeout(t);
         status.pending = false;
         status.resolved = true;
         resolve(...a);
       };
       rej = (...a) => {
+        clearTimeout(t);
         status.pending = false;
         status.rejected = true;
         reject(...a);
@@ -27,15 +38,7 @@ class TimePromise extends Promise {
     this.resolve = res;
     this.reject = rej;
     this.status = status;
-
-    if(timeout !== undefined){
-      this.timeout = setTimeout(() => {
-        if(!this.status.pending) return;
-        this.status.timedout = true;
-        this.status.pending = false;
-        this.resolve(null);
-      }, timeout);
-    }
+    this.timeout = t;
   }
 }
 
